@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="Basic/base::layout(~{::section})">
+
+
+<section class="">
+	<!-- JQUERY For Hiding Success Message -->
+	<script type="text/javascript"
+		src="/webjars/jquery/3.2.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			var hideError = function() {
+				$(".alert").hide();
+			};
+			setTimeout(hideError, 5000);
+		});
+	</script>
+
+
+	<div class="tryback">
+
+		<!-- Success Message -->
+		<div th:if="${session.message}"
+			th:classappend="${session.message.type}" class="alert locAlert"
+			id="successMessage" role="alert">
+			<p th:text="${session.message.text}"></p>
+
+			<th:block th:text="${#session.removeAttribute('message')}"></th:block>
+		</div>
+
+		<div class="addBox">
+			<h3>ADD BOOK</h3>
+
+
+			<div>
+				<form th:action="@{saveBook}" method="post" th:object="${Book}">
+					<!--Title -->
+					<div class="row mb-3 mt-4">
+						<div class="colS">
+							<label class="form-label">Book Title</label>
+						</div>
+						<div class="colN">
+							<input type="text" class="form-control" placeholder="Book Title"
+								name="title" required="required">
+						</div>
+					</div>
+
+					<!--Author -->
+					<div class="row mb-3">
+						<div class="colS">
+							<label class="form-label">Author</label>
+						</div>
+						<div class="colN" >
+						
+							<select name="prefix" class="form-control"  >
+							
+								
+								<option value="Ms"> Ms. </option> 
+								<option value="Miss"> Miss. </option> 
+								<option value="Mrs"> Mrs. </option> 
+								<option value="Mr"> Mr. </option>
+								<option value="Dr"> Dr. </option> 
+							    <option value="Hon"> Hon. </option>
+								<option value="Prof"> Prof. </option> 
+
+								<input type="text" class="form-control" placeholder="First Name"
+								name="First Name" required="required">
+
+								<input type="text" class="form-control" placeholder="Middle Name"
+								name="Middle Name" required="required">
+
+								<input type="text" class="form-control" placeholder="Last Name"
+								name="Last Name" required="required">
+							</select>
+    
+							
+								
+						</div>
+					</div>
+					<div class="row mb-3 mt-4">
+						<div class="colS">
+							<label class="form-label">Book ISBN</label>
+						</div>
+						<div class="colN">
+							<input type="text" class="form-control" placeholder="Book ISBN"
+								name="title" required="required">
+						</div>
+					</div>
+					
+					<div class="row mb-3 mt-4">
+						<div class="colS">
+							<label class="form-label">Year of Published</label>
+						</div>
+						<div class="colN">
+							<input type="text" class="form-control" placeholder="Year of Publication"
+								name="title" required="required">
+						</div>
+					</div>
+
+					<!--Copies -->
+					<div class="row mb-3">
+						<div class="colS">
+						
+							<label class="form-label">Binding</label>
+						</div>
+						<div class="colN">
+						<select name="prefix" class="form-control"  >
+							
+								<option value="Saddled Stitch">Saddled Stitch</option>
+								<option value="PUR binding">PUR binding </option>
+								<option value="case binding">case binding </option>
+								<option value="Single sewn">Single sewn </option>
+								<option value="Section sewn">Section sewn </option>
+								<option value="spiral binding">spiral binding </option>
+						
+							<input type="number" class="form-control" placeholder="Copies"
+								name="copies" required="required">
+							
+						</select>		
+						</div>
+					</div>
+
+					<!--Category -->
+					<div class="row mb-3">
+						<div class="colS">
+							<label class="form-label">Department</label>
+						</div>
+						<div class="colN">
+							<select name="department" class="form-control" required="required">
+								<th:bolck th:each="cat : ${department}">
+									<option th:text="${cat}"></option>
+								</th:bolck>
+							</select>
+						</div>
+					</div>
+
+					<!--Price -->
+					<div class="row mb-3">
+						<div class="colS">
+							<label class="form-label">Book Price</label>
+						</div>
+						<div class="colN">
+						<select name="prefix" class="form-control"  >
+							
+								<option value="Currency">Currency</option>
+								<option value="INR">INR</option>
+								<option value="USD">USD</option> 
+								 
+								
+							<input type="number" class="form-control" min="0"
+								placeholder="Price" name="price" required="required">
+								</select>
+						</div>
+					</div>
+					<!--Back and Submit -->
+					<div>
+						<a th:href="@{/app/dashboard}" class="backAddBook noDec"> BACK
+						</a>
+						<button type="submit" class="subButton3 ms-3">ADD BOOK</button>
+					</div>
+
+				</form>
+			</div>
+		</div>
+	</div>
+
+</section>
+
+</html>

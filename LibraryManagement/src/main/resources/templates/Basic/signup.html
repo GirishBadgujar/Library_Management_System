@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+<link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+
+
+
+<h3 class="text-center">Add User</h3>
+
+<form  action="" th:action="@{/app/saveuser}" method="post">
+<div class="form-group">
+ <label id="icon" for="name"><i class="icon-envelope "></i></label>
+  <input type="email" name="name" id="name" placeholder="Email" required/>
+ <br>
+  <label id="icon" for="name"><i class="icon-user"></i></label>
+  <input type="text" name="name" id="name" placeholder="Name" required/>
+ <br>
+  <label id="icon" for="name"><i class="icon-shield"></i></label>
+  <input type="password" name="name" id="name" placeholder="Password" required/>
+  </div>
+<div class="container">
+						
+						<button type="submit" class="submit" >submit</button>
+						<br><br>
+						<a href="login">Login If Already have Signup</a>
+						</div>
+		                <br>
+		                <br>
+		                
+					</form>
+</body>
+</html>

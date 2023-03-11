@@ -38,7 +38,7 @@ public class EmailService {
 	     @Override
 	    		protected javax.mail.PasswordAuthentication getPasswordAuthentication() {
 	    			// TODO Auto-generated method stub
-	    	 return new PasswordAuthentication("amit1covid19@gmail.com","Amitbhaiya@1");
+	    	 return new PasswordAuthentication("girishbadgujar1207@gmail.com","G@118378g");
 	    		}
 		{
 		//	

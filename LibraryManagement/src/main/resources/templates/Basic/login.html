@@ -37,17 +37,18 @@
 
 					<form th:action="@{verify}" method="post" th:object="${admin}">
 						<h3>SIGN IN</h3>
-<div th:if="${param.error}"  class="text-danger"> Invalid Username or Password </div>
+						<div th:if="${param.error}" class="text-danger">Invalid
+							Username or Password</div>
 						<!-- User name -->
 						<input th:value="${admin.username}" name="username" type="text"
-							placeholder="USERNAME">
+							placeholder="USERNAME" required="required">
 
 						<!-- Password -->
-						<input name="password" type="password" placeholder="PASSWORD">
+						<input name="password" type="password" placeholder="PASSWORD"
+							required="required">
+
 						<button type="submit" class="submit">Login</button>
-		                <br>
-		                <br>
-		                <a th:href="@{/forget}">Click here to forget password</a>
+						<br> <br> <a th:href="@{/forget}">Forgot Password</a>
 					</form>
 				</div>
 			</div>
